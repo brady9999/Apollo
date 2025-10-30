@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apollo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-mark">G</div>
+      <div class="brand-title">
+        <h1>Apollo</h1>
+        <p>Your songwriting partner in creativity and craft</p>
+      </div>
+    </div>
+    <button id="themeToggle" class="btn ghost">Toggle theme</button>
+  </header>
+
+  <main class="container">
+    <section class="pane input-pane">
+      <div class="pane-header">
+        <h2>Lyrics</h2>
+        <div class="controls">
+            <label class="select-label">
+                Section
+            <select id="sectionSelect">
+              <option value="Verse">Verse</option>
+              <option value="Chorus">Chorus</option>
+              <option value="Bridge">Bridge</option>
+              <option value="Freeform">Freeform</option>
+            </select>
+            </label>
+
+            <label class="select-label">
+                Target mood
+                <select id="moodSelect">
+                <option>Heartbreak</option>
+                <option>Empowerment</option>
+                <option>Nostalgia</option>
+                <option>Joy</option>
+                <option>Melancholy</option>
+                </select>
+            </label>
+
+            <!-- NEW GENRE DROPDOWN -->
+            <label class="select-label">
+                Genre
+                <select id="genreSelect">
+                 <option>Pop</option>
+                 <option>Rock</option>
+                 <option>Hip-Hop</option>
+                 <option>Country</option>
+                 <option>R&B</option>
+                 <option>Indie/Folk</option>
+                 <option>Electronic</option>
+                 <option>Metal</option>
+                 <option>Jazz</option>
+                </select>
+              </label>
+            </div>
+      </div>
+
+      <textarea id="lyricsInput" placeholder="Type or paste your lyrics here..."></textarea>
+
+      <div class="mixer">
+        <label for="toneSlider">Creative ↔ Critical</label>
+        <input type="range" id="toneSlider" min="0" max="100" value="50">
+        <div class="mixer-scale">
+          <span>Creative</span>
+          <span>Balanced</span>
+          <span>Critical</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="analyzeBtn" class="btn primary">Analyze</button>
+        <button id="clearBtn" class="btn">Clear</button>
+        <button id="sampleBtn" class="btn">Load sample</button>
+      </div>
+    </section>
+
+    <section class="pane output-pane">
+      <div class="pane-header">
+        <h2>Feedback</h2>
+        <div class="legend">
+          <span class="chip creative">Creative Sparks</span>
+          <span class="chip critical">Polish & Precision</span>
+        </div>
+      </div>
+
+      <div id="summary" class="card"></div>
+
+      <div class="grid two">
+        <div class="card">
+          <h3>Creative sparks</h3>
+          <ul id="creativeList" class="bullet-list"></ul>
+        </div>
+        <div class="card">
+          <h3>Polish & precision</h3>
+          <ul id="criticalList" class="bullet-list"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Line-by-line suggestions</h3>
+        <div id="lineSuggestions" class="suggestions"></div>
+      </div>
+
+      <div class="card">
+        <h3>Metrics</h3>
+        <div id="metrics" class="metrics"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>© Apollo</span>
+    <span>v0.1 Prototype</span>
+  </footer>
+
+  <div id="loadingOverlay" class="hidden">
+  <div class="spinner"></div>
+    <p>Analyzing your lyrics…</p>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
