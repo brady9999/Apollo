@@ -3,6 +3,8 @@ openai>=1.53.0
 fastapi>=0.110.0
 uvicorn>=0.29.0
 python-dotenv>=1.0.1
+gunicorn==21.2.0
+
 
 # Voice input/output
 SpeechRecognition>=3.10.0

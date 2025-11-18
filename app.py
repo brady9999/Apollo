@@ -1,7 +1,8 @@
 import os, sys, argparse, json
 from dotenv import load_dotenv
 from openai import OpenAI
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template
+from flask import request, jsonify
 
 # ---------------- ENVIRONMENT ----------------
 load_dotenv()
@@ -45,11 +46,18 @@ def chat_completion(messages):
     return resp.choices[0].message.content.strip()
 
 # ---------------- FLASK APP ----------------
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_url_path='/apollo/static',
+    static_folder='static',
+    template_folder='templates'
+)
+
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html")  # Apollo’s index.html
+
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
